@@ -24,9 +24,7 @@ public class Contact implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String profileImage;
-    @Column(unique = true)
     private String email;
-    @Column(unique = true, length = 9)
     private Long phoneNumber;
     @OneToOne(mappedBy = "contact")
     private Person person;

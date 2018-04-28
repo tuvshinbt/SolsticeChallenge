@@ -111,10 +111,10 @@ public class ContactServiceImpl implements ContactService {
         logger.info("ContactService search");
         Contact contact = null;
         if (ContactCriteria.EMAIL == contactCriteria) {
-            contact = contactRepository.findByEmail(value);
+            contact = ContactRepository.getSingleResultOrNull(contactRepository.<Person>findByEmail(value));
         } else if (ContactCriteria.PHONE_NUMBER == contactCriteria) {
 
-            contact = contactRepository.findByPhoneNumber(Long.parseLong(value));
+            contact = ContactRepository.getSingleResultOrNull(contactRepository.<Person>findByPhoneNumber(Long.parseLong(value)));
         } else {
             throw new InBadRequestException("Unknown filter!");
         }

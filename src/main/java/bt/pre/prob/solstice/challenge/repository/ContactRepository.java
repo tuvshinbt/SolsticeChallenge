@@ -6,6 +6,7 @@
 package bt.pre.prob.solstice.challenge.repository;
 
 import bt.pre.prob.solstice.challenge.entity.Contact;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -14,7 +15,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
 
-    Contact findByEmail(String email);
+    List<Contact> findByEmail(String email);
 
-    Contact findByPhoneNumber(Long phoneNumber);
+    List<Contact> findByPhoneNumber(Long phoneNumber);
+
+    static <T> T getSingleResultOrNull(List<T> list) {
+        if (list.isEmpty()) {
+            return null;
+        } else {
+            return list.get(0);
+        }
+    }
 }

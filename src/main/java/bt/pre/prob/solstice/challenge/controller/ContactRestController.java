@@ -37,7 +37,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  *
  * @author tuvshuu
  */
-@RestController("contact")
+@RestController
 @RequestMapping(value = "/restapi/contact")
 public class ContactRestController {
 

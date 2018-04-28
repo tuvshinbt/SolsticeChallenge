@@ -23,7 +23,6 @@ public class Company implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    @Column(unique = true, length = 9)
     private Long phone;
 
     public Company() {
